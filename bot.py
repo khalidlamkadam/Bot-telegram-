@@ -24,7 +24,8 @@ def start_health_check_server():
 threading.Thread(target=start_health_check_server, daemon=True).start()
 
 # حط التوكن الجديد هنا
-API_TOKEN = "8853473872:AAGZ_82RvNry_dgQFFYrN7f3blJXxDEqEcg"
+API_TOKEN = "API_TOKEN = os.environ.get("BOT_TOKEN")"
+
 
 # محافظ استقبال الأموال
 BINANCE_ID = "838990812"
