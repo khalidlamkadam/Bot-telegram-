@@ -163,7 +163,7 @@ async def payment_details(cb: types.CallbackQuery):
     
     addr_map = {
         "trc20": ("TRC20", USDT_TRC20, "10.00"),
-        "bsc": ("BEP20 (BSC)", USDT_BSC, "10.00"),
+        "bsc": ("BEP20", USDT_BEP20, "10.00"),
         "bpay": ("Binance Pay ID", BINANCE_ID, "10.00")
     }
     net_name, addr, price = addr_map[net]
