@@ -24,7 +24,7 @@ def start_health_check_server():
 threading.Thread(target=start_health_check_server, daemon=True).start()
 
 # حط التوكن الجديد هنا
-API_TOKEN = "API_TOKEN = os.environ.get("BOT_TOKEN")"
+API_TOKEN = API_TOKEN = os.environ.get("BOT_TOKEN")
 
 
 # محافظ استقبال الأموال
