@@ -7,12 +7,12 @@ from aiogram.types import (
 )
 
 # حط التوكن الجديد هنا
-API_TOKEN = "YOUR_NEW_TOKEN_HERE"
+API_TOKEN = "8853473872:AAGZ_82RvNry_dgQFFYrN7f3blJXxDEqEcg"
 
 # محافظ استقبال الأموال
-USDT_TRC20 = "TYourTrc20WalletHere"
-USDT_BSC = "0xYourBscWalletHere"
-BINANCE_ID = "YourBinanceIdHere"
+BINANCE_ID = "838990812"
+USDT_BEP20 = "0x71e70715d63e2d20b82a1cfe770eb3a50a696f05"
+USDT_TRC20 = "TEkXcay6yRsqRzceUMYbDixh4g9oSa6cke"
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
@@ -73,7 +73,7 @@ def get_main_keyboard():
 def get_lang_inline():
     return InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="🇬🇧 English", callback_data="set_en")],
-        [InlineKeyboardButton(text="🇲🇦 العربية", callback_data="set_ar")],
+        [InlineKeyboardButton(text="🇸🇦 العربية", callback_data="set_ar")],
         [InlineKeyboardButton(text="🇫🇷 Français", callback_data="set_fr")]
     ])
 
