@@ -24,7 +24,7 @@ def start_health_check_server():
 threading.Thread(target=start_health_check_server, daemon=True).start()
 
 # حط التوكن الجديد هنا
-API_TOKEN = os.environ.get("BOT_TOKEN")
+API_TOKEN = API_TOKEN = os.environ.get("BOT_TOKEN")
 
 
 # محافظ استقبال الأموال
@@ -171,47 +171,6 @@ async def payment_details(cb: types.CallbackQuery):
     text = TEXTS[lang]["pay_info"].format(price=price, net=net_name, addr=addr)
     await cb.message.edit_text(text, parse_mode="Markdown")
     await cb.answer()
-from aiogram import F
-from aiogram.types import CallbackQuery
-
-# 1. معالج شبكة TRC20
-@dp.callback_query(F.data.startswith("pay_trc20_"))
-async def process_pay_trc20(callback: CallbackQuery):
-    await callback.answer()
-    prod_id = callback.data.replace("pay_trc20_", "")
-    
-    msg = (
-        f"💳 **شبكة الدفع: USDT (TRC20)**\n\n"
-        f"📍 **عنوان الإيداع:**\n`{USDT_TRC20}`\n\n"
-        f"⚠️ يرجى التأكد من التحويل عبر شبكة Tron (TRC20) فقط."
-    )
-    await callback.message.answer(msg, parse_mode="Markdown")
-
-# 2. معالج شبكة BEP20 (BSC)
-@dp.callback_query(F.data.startswith("pay_bsc_"))
-async def process_pay_bsc(callback: CallbackQuery):
-    await callback.answer()
-    prod_id = callback.data.replace("pay_bsc_", "")
-    
-    msg = (
-        f"💳 **شبكة الدفع: USDT (BSC / BEP20)**\n\n"
-        f"📍 **عنوان الإيداع:**\n`{USDT_BEP20}`\n\n"
-        f"⚠️ يرجى التأكد من التحويل عبر شبكة BNB Smart Chain (BEP20)."
-    )
-    await callback.message.answer(msg, parse_mode="Markdown")
-
-# 3. معالج Binance Pay ID
-@dp.callback_query(F.data.startswith("pay_bpay_"))
-async def process_pay_bpay(callback: CallbackQuery):
-    await callback.answer()
-    prod_id = callback.data.replace("pay_bpay_", "")
-    
-    msg = (
-        f"💳 **الدفع عبر Binance Pay**\n\n"
-        f"🆔 **معرف الحساب (Binance ID):**\n`{BINANCE_ID}`\n\n"
-        f"يرجى إرسال لقطة شاشة للإشعار بعد التحويل للتأكيد."
-    )
-    await callback.message.answer(msg, parse_mode="Markdown")
 
 async def main():
     await dp.start_polling(bot)
